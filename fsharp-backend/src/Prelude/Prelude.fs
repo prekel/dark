@@ -402,26 +402,6 @@ let filter_s
     return List.rev result
   }
 
-
-let find_s
-  (f : 'a -> TaskOrValue<bool>)
-  (list : List<'a>)
-  : TaskOrValue<Option<'a>> =
-  List.fold
-    (fun (accum : TaskOrValue<Option<'a>>) (arg : 'a) ->
-      taskv {
-        match! accum with
-        | Some v -> return Some v
-        | None ->
-            let! result = f arg
-            return (if result then Some arg else None)
-      })
-    (taskv { return None })
-    list
-
-
-
-
 let find_s
   (f : 'a -> TaskOrValue<bool>)
   (list : List<'a>)
