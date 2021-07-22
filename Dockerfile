@@ -362,6 +362,21 @@ RUN sudo adduser --disabled-password --gecos '' --gid ${gid} tunnel
 ENV TERM=xterm-256color
 
 ############################
+# Opam and ocaml-lsp-server
+############################
+USER dark
+
+RUN \
+  sudo add-apt-repository ppa:avsm/ppa -y \
+  && sudo apt install opam -y
+
+RUN \
+  opam init \
+  && opam switch create 4.06.1+rescript \
+  && eval $(opam env --switch=4.06.1+rescript) \
+  && opam install ocaml-lsp-server
+
+############################
 # Finish
 ############################
 USER dark
