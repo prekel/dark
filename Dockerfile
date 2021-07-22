@@ -371,10 +371,10 @@ RUN \
   && sudo apt install opam -y
 
 RUN \
-  opam init \
+  opam init -y --disable-sandboxing \
   && opam switch create 4.06.1+rescript \
   && eval $(opam env --switch=4.06.1+rescript) \
-  && opam install ocaml-lsp-server
+  && opam install ocaml-lsp-server -y
 
 ############################
 # Finish
