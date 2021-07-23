@@ -34,7 +34,7 @@
     "pusher-js": "5.1.1",
     "rollbar": "2.24.0",
     "sha2": "1.0.2",
-    "tablecloth-bucklescript": "0.0.7",
+    "tablecloth-bucklescript": "git+https://github.com/prekel/tablecloth.git#a78c81f462ef901d141d666e4eb641ba6648bbcd",
     "validator": "^13.6.0"
   },
   "scripts": {
