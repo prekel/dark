@@ -38,7 +38,7 @@
   ],
   "bs-dev-dependencies": [
   ],
-  "bsc-flags": ["-bs-g", "-bs-super-errors", "-warn-error", "@A", "-w", "-4-30-40-41-42-102"],
+  "bsc-flags": ["-bs-g", "-bs-super-errors", "-w", "-4-30-40-41-42-102"],
   "warnings": {
     "error": "+101"
   },
