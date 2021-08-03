@@ -51,7 +51,7 @@ let viewArrow (curID : ID.t) (srcID : ID.t) : Types.msg Html.html =
 let viewDval tlid secrets dval ~(canCopy : bool) =
   let text = Runtime.toRepr dval |> Util.hideSecrets secrets in
   let tp = Types.show_dval dval in
-  [Html.text text; Html.text tp; (if canCopy then viewCopyButton tlid text else Vdom.noNode)]
+  [Html.text text; Html.text " : "; Html.text tp; (if canCopy then viewCopyButton tlid text else Vdom.noNode)]
 
 
 type lvResult =
