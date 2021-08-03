@@ -492,6 +492,11 @@ and secret (s : SecretTypes.t) : Js.Json.t =
     ; ("secret_value", string s.secretValue) ]
 
 
+and deleteSecret (secretName : string) : Js.Json.t =
+object_
+  [ ("secret_name", string secretName) ]
+
+
 and performHandlerAnalysisParams (params : Types.performHandlerAnalysisParams) :
     Js.Json.t =
   object_

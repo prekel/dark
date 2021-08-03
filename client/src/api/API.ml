@@ -172,6 +172,16 @@ let insertSecret (m : model) (params : SecretTypes.t) : msg Tea.Cmd.t =
     ~callback:(fun x -> InsertSecretCallback x)
 
 
+let deleteSecret (m : model) (secretName : string) : msg Tea.Cmd.t =
+  apiCall
+    m
+    "/delete_secret"
+    ~encoder:Encoders.deleteSecret
+    ~decoder:Decoders.insertSecretResult
+    ~params:secretName
+    ~callback:(fun x -> InsertSecretCallback x)
+
+
 let initialLoad (m : model) (focus : focus) : msg Tea.Cmd.t =
   apiCallNoParams
     m

@@ -9,6 +9,7 @@ type msg =
   | OnUpdateName of string
   | OnUpdateValue of string
   | SaveNewSecret
+  | DeleteSecret of string
 [@@deriving show]
 
 type insertModal =

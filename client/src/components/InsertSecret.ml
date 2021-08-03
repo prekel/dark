@@ -88,6 +88,11 @@ let update (msg : msg) : Types.modification =
               , Cmd.none )
           in
           ({m with insertSecretModal}, cmd))
+  | DeleteSecret secretName ->
+    Types.ReplaceAllModificationsWithThisOne
+      (fun m ->
+        let cmd = API.deleteSecret m secretName in
+        (m, cmd))
 
 
 let onKeydown (evt : Web.Node.event) : Types.msg option =

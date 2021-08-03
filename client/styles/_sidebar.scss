@@ -18,9 +18,9 @@ $hSpace: 5px;
 $icSize: 1em;
 
 /******************************************************************************
-* 
+*
 * General structure:
-* 
+*
 * .component {
 *   &.states-definitions { }
 *   .children-definitions {}
@@ -28,10 +28,10 @@ $icSize: 1em;
 * }
 * ... and so on for each (category wrapper, category titles, line items)
 * .special-case-categories (404, static assets, deleted, etc.)
-* 
+*
 * We use @at-root to reduce deep nesting where repeating attributes
 * overwrite each other.
-* 
+*
 ******************************************************************************/
 
 #sidebar-left {
@@ -637,6 +637,14 @@ $icSize: 1em;
     }
 
     .copy-secret-name {
+      font-size: 16px;
+
+      &:hover {
+        color: $hoverColor;
+      }
+    }
+
+    .delete-secret {
       font-size: 16px;
 
       &:hover {

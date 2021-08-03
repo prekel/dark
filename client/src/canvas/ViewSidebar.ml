@@ -693,6 +693,16 @@ let viewSecret (s : SecretTypes.t) : msg Html.html =
       ; Html.title "Click to copy secret name" ]
       [fontAwesome "copy"]
   in
+  let deleteBtn =
+    Html.div
+      [ Html.class' "icon-button delete-secret"
+      ; ViewUtils.eventNeither
+          "click"
+          ~key:("delete-secret-" ^ s.secretName)
+          (fun _ -> SecretMsg (DeleteSecret s.secretName))
+      ; Html.title "Click to delete secret" ]
+      [fontAwesome "times"]
+  in
   let secretValue = Util.obscureString s.secretValue in
   let secretValue =
     (* If str length > 16 chars, we just want to keep the last 16 chars *)
@@ -706,7 +716,8 @@ let viewSecret (s : SecretTypes.t) : msg Html.html =
         [Html.class' "key-block"]
         [ Html.span [Html.class' "secret-name"] [Html.text s.secretName]
         ; Html.span [Html.class' "secret-value"] [Html.text secretValue] ]
-    ; copyBtn ]
+    ; copyBtn
+    ; deleteBtn ]
 
 
 let viewSecretKeys (m : model) : msg Html.html =
